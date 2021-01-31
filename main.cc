@@ -2,16 +2,18 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <sstream>
 
 const string INT = "int";
 const string VOID = "void";
 const string CHAR = "char";
-const string STAR = "*";
+const char STAR = '*';
 
 using namespace std;
 
 //each function can have max 3 args  $1-$3
 //$4 will be return register for function
+//pointers should be type space * ie. int * ptr, not int* ptr;
 
 int main()
 {
@@ -29,33 +31,37 @@ int main()
     for (auto line : html)
     {
         //anaylze the line of code
-        //new function
-        if ()
-        { // new function
-        }
-        else if ()
-        { //variable
-        }
-        else if ()
-        { //if statement
-        }
-        else if ()
-        { // pointers
-        }
-        else if ()
-        { //arithmetic
-        }
-        else if ()
-        { //display to screen
-        }
-        else if ()
-        { //take input
-        }
-        else if ()
-        { //call function
-        }
+     istringstream iss(line);
+
+do
+{
+    string tempStr;
+    iss>>tempStr;
+    //variable or function declaration
+   if((tempStr == INT) || (tempStr == VOID) || (tempStr == CHAR)) {
+       //name or star
+    iss>>tempStr;
+    if(tempStr[0] == STAR) iss>>tempStr;
+
+    //part we are interested that will allow to indentity type
+    iss>>tempStr;
+    if(tempStr[tempStr.length()-1] == ';'){ //variabla declaration
+createVarCode();
+    } else{ //function declaration
+
+createFunctionCode();
     }
-}
+break;
+   } else if (tempStr == "if"){
+       ifStatementCode();
+   }
+
+
+
+} while (iss);
+    }
+
+
 
 //determines the number of variables in function
 int countVarFunc(){
@@ -63,12 +69,12 @@ int countVarFunc(){
 }
 
 
-int createVarFunc(){
+int createVarCode(){
 
 }
 
 
-int createPointerVarFunc(){
+int createFunctionCode(){
 
 }
 
