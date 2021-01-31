@@ -3,17 +3,17 @@
 #include <vector>
 #include <vector>
 
-
-
-int MipsCoder::countVarFunc(){
-
+int MipsCoder::countVarFunc()
+{
 }
 
-MipsCoder::MipsCoder(vector<string> code):cPlusCode{code} {}
+MipsCoder::MipsCoder(vector<string> code) : cPlusCode{code} {}
 
-void MipsCoder::startTranslating(){
+void MipsCoder::startTranslating()
+{
     for (auto line : cPlusCode)
     {
+        curLine = 0;
         //analyze the line of code
         istringstream iss(line);
 
@@ -26,7 +26,6 @@ void MipsCoder::startTranslating(){
             iss >> tempStr;
             if (tempStr[0] == STAR)
                 iss >> tempStr;
-
             //part we are interested that will allow to indentity type
             if (tempStr[tempStr.length() - 1] == ';')
             { //variable declaration
@@ -38,21 +37,17 @@ void MipsCoder::startTranslating(){
                 createFunctionCode();
             }
         }
-        else if (tempStr == "if")
+        else if (tempStr == "if" || tempStr.substr(0,3) == "if(")
         {
             ifStatementCode();
         }
-        else if (tempStr == CIN)
+        else if (tempStr == CIN || (tempStr.substr(0,5) == (CIN + ">>")) )
         {
             takeInputCode();
         }
-        else if (tempStr == COUT)
+        else if (tempStr == COUT || (tempStr.substr(0,6) == (COUT + "<<")))
         {
             displayOutputCode();
-        }
-        else if (tempStr == COUT)
-        {
-            takeInputCode();
         }
         else
         {
@@ -72,8 +67,8 @@ void MipsCoder::startTranslating(){
                 callFunctionCode();
             }
         }
+        curLine++;
     }
-
 }
 
 int MipsCoder::createFunctionCode(){
@@ -84,6 +79,10 @@ int MipsCoder::createFunctionCode(){
 
 void MipsCoder::arithmeticCode(){
 cout<<"arithmetic"<<endl;
+//find in map what variable correponds to what register
+//if you find a number then add it
+//add two digits at a time
+
 }
 
 void MipsCoder::ifStatementCode(){
@@ -101,9 +100,9 @@ cout<<"cout"<<endl;
 }
 
 void MipsCoder::callFunctionCode(){
-cout<<"functionj"<<endl;
+cout<<"function"<<endl;
 }
 
 void MipsCoder::createVarCode(){
-cout<<"create variable";
+cout<<"create variable"<<endl;
 }

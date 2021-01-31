@@ -7,8 +7,8 @@
 const std::string INT = "int";
 const std::string VOID = "void";
 const std::string CHAR = "char";
-const std::string CIN = "CIN";
-const std::string COUT = "COUT";
+const std::string CIN = "cin";
+const std::string COUT = "cout";
 const char STAR = '*';
 
 #endif
