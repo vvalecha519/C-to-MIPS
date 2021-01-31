@@ -17,6 +17,7 @@ class MipsCoder{
 
 
 vector<string>cPlusCode;
+map<string, int> curFunctionMapping;
 
 //determines the number of variables in function
 int countVarFunc();

@@ -5,19 +5,13 @@
 #include <sstream>
 #include "mipsCoder.h"
 
-const string INT = "int";
-const string VOID = "void";
-const string CHAR = "char";
-const string CIN = "CIN";
-const string COUT = "COUT";
-const char STAR = '*';
-
 using namespace std;
 
 //each function can have max 3 args  $1-$3
 //$4 will be return register for function
 //pointers should be type space * ie. int * ptr, not int* ptr;
 //arithmetic requires equal sign no a++;
+//make $28 and $29 as temporary register
 
 int main()
 {

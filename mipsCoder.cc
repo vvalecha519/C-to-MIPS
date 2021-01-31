@@ -77,29 +77,33 @@ void MipsCoder::startTranslating(){
 }
 
 int MipsCoder::createFunctionCode(){
+    //update 
+    cout<<"create function"<<endl;
 
 }
 
 void MipsCoder::arithmeticCode(){
-
+cout<<"arithmetic"<<endl;
 }
 
 void MipsCoder::ifStatementCode(){
 
+cout<<"if"<<endl;
 }
 
 void MipsCoder::takeInputCode(){
-
+cout<<"cin"<<endl;
 }
 
 void MipsCoder::displayOutputCode(){
 
+cout<<"cout"<<endl;
 }
 
 void MipsCoder::callFunctionCode(){
-
+cout<<"functionj"<<endl;
 }
 
 void MipsCoder::createVarCode(){
-
+cout<<"create variable";
 }
